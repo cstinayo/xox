@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+        }
+        .butonnn {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        button:hover{
+            cursor:pointer;
+        }
+
+        .square {
+            position: relative; /* Allows absolute positioning inside */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .x{
+            position: absolute; /* Ensures they can overlap */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centers them perfectly */
+            z-index: 2; /* Ensures they're above the box */
+            opacity: 0; /* Hidden by default */
+            width:100px;
+            height:100px;
+        }
+
+        .o{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%); /* Centers them perfectly */
+            z-index:2;
+            opacity: 0;  
+            width: 100px;
+            height: 100px;
+
+        }
+
+        .box {
+            z-index: 1; /* Ensure box is behind X and O */
+            width: 150px;
+            height: 150px;
+            
+        }
+
+        .playbutton{
+            z-index:6;
+            display:absolute;
+            width:100px;
+            height:100px;
+            margin-left:auto;
+            margin-right:auto;
+       
+
+        }
+
+        .hehe{
+            opacity:0;
+            z-index: 999;
+            /*can be shortened*/
+            position:fixed;
+            top:10%;
+            left:90%;
+            width:500px;
+            height:500px;
+            
+        }
+
+        p{
+            font: 1em sans-serif;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+
+<!-- changed it so that playbutton was inside rather than outside-->
+    <button id="playbutton" class=""playbutton?>
+        <img src="/assets/playbutton.png" alt="I'm gonna beat youu">
+
+    </button>
+
+    <button id="end_message" class="hehe">
+        <img src="/assets/end_game.png" alt="mwahahahaha">
+    </button>
+<!--<button><div class="playbutton" id="playbutton"><img src="/assets/playbutton.png" alt="I'm gonna beat youu"></div></button>-->
+
+<div class="butonnn" id="gameboard">
+    <script>
+        for(let i=1; i<=9; i++){
+            document.write(`
+                <div class="square" id="but${i}">
+                    <button>
+                        <img class="x" id="x${i}" src="/assets/x.png" alt="xxx">
+                        <img class="o" id="o${i}" src="/assets/o.png" alt="owowo">
+                        <img class="box" src="/assets/box.png" alt="wahh">
+                    </buttion>
+                </div>
+
+            `);
+        }
+    </script>
+</div>
+
+<script src="main.js"></script>
+<!--
+<div class="butonnn">
+    <!-- Each square contains the box, X, and O stacked 
+     
+    <div class="square" id="but1">
+        <button onclick="player_gameplay()">
+        <img class="x" id="x1" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o1" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+        </button>
+    </div>
+
+    <div class="square" id="but2">
+        <button>
+        <img class="x" id="x2" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o2" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but3">
+        <button>
+        <img class="x" id="x3" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o3" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but4">
+        <button>
+        <img class="x" id="x4" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o4" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but5">
+        <button>
+        <img class="x" id="x5" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o5" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but6">
+        <button>
+        <img class="x" id="x6" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o6" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but7">
+        <button>
+        <img class="x" id="x7" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o7" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but8">
+        <button>
+        <img class="x" id="x8" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o8" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+    </button>
+    </div>
+
+    <div class="square" id="but9">
+        <button>
+        <img class="x" id="x9" src="/assets/x.png" alt="xxx">
+        <img class="o" id="o9" src="/assets/o.png" alt="owowo">
+        <img class="box" src="/assets/box.png" alt="wahh">
+        </button>
+    </div>
+</div>
+
+
+
+</body>
+</html>
