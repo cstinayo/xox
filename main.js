@@ -1,3 +1,4 @@
+
 var player_playing = false;
 var robot_playing = true;
 var turns = 1;
@@ -131,9 +132,11 @@ function reset_game(){
 
     const end_message = document.getElementById(`end_message`);
     end_message.style.opacity = "0";
-    end_message.style.position = 'absolute';
-    end_message.style.right = '220px';
-    end_message.style.bottom = '70px';
+    end_message.style.position = 'fixed';
+    end_message.style.top = '10%';
+    end_message.style.left = '90%';
+
+ 
 
 
     for(let i = 1; i<=9; i++){
