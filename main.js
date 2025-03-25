@@ -79,7 +79,7 @@ function player_gameplay(i){
          const end_message = document.getElementById(`end_message`);
          end_message.style.opacity = "1";
          end_message.style.position = 'absolute';
-         end_message.style.left = '220px';
+         end_message.style.left = '420px';
          end_message.style.top = '70px';
          }, 650);
 
