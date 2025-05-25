@@ -135,7 +135,7 @@ function reset_game(){
     end_message.style.opacity = "1";
     end_message.style.position = 'fixed';
     end_message.style.top = '10%';
-    end_message.style.left = '90%';
+    end_message.style.left = '-90%';
 
  
 
